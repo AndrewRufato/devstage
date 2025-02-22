@@ -1,0 +1,75 @@
+'use client'
+import { User, Mail, ArrowRight } from "lucide-react";
+import { Button } from "../components/button";
+import { InputRoot, Inputicon, Inputfield } from "../components/input";
+import { useForm } from "react-hook-form";
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+const subscriptionSchema = z.object({
+  name: z.string().min(2, 'Digite seu nome completo'),
+  email: z.string().email('Digite um e-mail válido'),
+})
+type subscriptionSchema = z.infer <typeof subscriptionSchema>
+
+export function Subscriptionform(){
+ const { 
+  register,
+  handleSubmit,
+  formState: {errors}, 
+  } = useForm<subscriptionSchema>({
+    resolver: zodResolver(subscriptionSchema),
+ })
+
+  function onSubscribe(data: subscriptionSchema){
+    //const values = Object.fromEntries(data.entries())
+    console.log(data)
+
+    }
+
+
+    return(
+        <form onSubmit={handleSubmit(onSubscribe)} className='bg-gray-700 border border-gray-600 rounded-2xl p-8 space-y-6 w-full md:max-w-[440px]'>
+            <h2 className='font-heading font-semibold text-gray-200 text-xl'>Inscrição</h2>
+            <div className='space-y-3'>
+              <div className="space-y-2">
+              <InputRoot>
+                <Inputicon>
+                  <User/>
+                </Inputicon>
+                <Inputfield 
+                 type='text' 
+                 placeholder='Nome completo'
+                 {...register('name')}
+                 />
+              </InputRoot>
+              {errors.name && (
+                <p className="text-danger text-xs font-semibold">{errors.name.message}</p>
+              )}
+              </div>
+
+              <div className="space-y-2">
+              <InputRoot>
+                <Inputicon>
+                  <Mail />
+                </Inputicon>
+                <Inputfield 
+                type='email' 
+                placeholder='Nome completo'
+                {...register('email')}
+                />
+              </InputRoot>
+              {errors.email && (
+                <p className="text-danger text-xs font-semibold">{errors.email.message}</p>
+              )}
+              </div>
+            
+            </div>
+              <Button type='submit'> 
+                Confirmar 
+                <ArrowRight/>
+              </Button>
+          </form>
+
+    )
+}
