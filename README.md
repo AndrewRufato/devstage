@@ -14,13 +14,6 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 - **React Hook Form**: Uma biblioteca para gerenciar formulários em React de maneira simples e eficiente.
 - **Lucide-react**: Um conjunto de ícones em formato React para uso em interfaces de usuário.
 
-## Estrutura do Projeto
-
-A estrutura básica do projeto é a seguinte:
-
-/public └── [arquivos estáticos e assets] /src ├── components │ ├── Button.tsx │ ├── Input.tsx │ └── [outros componentes] ├── pages │ ├── index.tsx │ ├── invite.tsx │ └── [outras páginas] ├── styles │ └── [arquivos de estilo] ├── utils │ └── [funções utilitárias] └── [outros diretórios e arquivos]
-
-
 
 ## Instalação e Uso
 
