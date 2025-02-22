@@ -8,7 +8,7 @@ import { BadgeCheck, Copy, Link, Medal, MousePointerClick } from 'lucide-react';
 import { IconButton } from '../components/icon-button';
 
 export default function InvitePage() {
-    const inviteLink = 'http://localhost:3000/invite/12345678'
+    const inviteLink = 'https://www.linkedin.com/in/andrew-rufato-845406211/'
     return(
         <div className="min-h-dvh flex items-center justify-between gap-16 flex-col md:flex-row">
             <div className="flex flex-col gap-10 w-full max-w-[550px]">
